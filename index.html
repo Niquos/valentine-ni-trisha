@@ -246,6 +246,12 @@
                     yesBtn.style.fontSize = (currentYesSize * 1.5) + 'px';
                     yesBtn.style.padding = '20px 50px';
                     document.querySelector('.gif-container img').src = sadGifs[1];
+                    // Hide the title and question
+                    document.querySelector('h1').style.display = 'none';
+                    document.querySelector('.question').style.display = 'none';
+                    // Make GIF bigger
+                    document.querySelector('.gif-container img').style.width = '250px';
+                    document.querySelector('.gif-container img').style.height = '250px';
                     break;
                 case 2:
                     message.textContent = "Babeeeeeeee??!!!!!!🤨🤨";
