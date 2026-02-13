@@ -241,8 +241,9 @@
             const currentNoSize = parseFloat(window.getComputedStyle(noBtn).fontSize);
 
             switch(noClickCount) {
-                case 1:
+               case 1:
                     message.textContent = "Ayaw mo me ka-Valentine's??😔";
+                    message.style.fontSize = '28px';
                     yesBtn.style.fontSize = (currentYesSize * 1.5) + 'px';
                     yesBtn.style.padding = '20px 50px';
                     document.querySelector('.gif-container img').src = sadGifs[1];
