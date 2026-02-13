@@ -240,8 +240,8 @@
             const currentYesSize = parseFloat(window.getComputedStyle(yesBtn).fontSize);
             const currentNoSize = parseFloat(window.getComputedStyle(noBtn).fontSize);
 
-            switch(noClickCount) {
-               case 1:
+           switch(noClickCount) {
+                case 1:
                     message.textContent = "Ayaw mo me ka-Valentine's??😔";
                     message.style.fontSize = '28px';
                     yesBtn.style.fontSize = (currentYesSize * 1.5) + 'px';
@@ -256,23 +256,31 @@
                     break;
                 case 2:
                     message.textContent = "Babeeeeeeee??!!!!!!🤨🤨";
+                    message.style.fontSize = '30px';
                     yesBtn.style.fontSize = (currentYesSize * 1.3) + 'px';
                     yesBtn.style.padding = '25px 60px';
                     noBtn.style.fontSize = (currentNoSize * 0.8) + 'px';
                     noBtn.style.padding = '10px 20px';
-                    document.querySelector('.gif-container img').src = sadGifs[2];
+                    // Spock eyebrow raise GIF
+                    document.querySelector('.gif-container img').src = 'https://media.tenor.com/ggFwEbLaZrUAAAAC/spock-eyebrow-raise.gif';
                     break;
                 case 3:
                     makeButtonRunAway();
-                    message.textContent = "The button is running away from you! 😂";
+                    message.textContent = "Daliiiiiiiiiiiii!";
+                    message.style.fontSize = '32px';
+                    // Begging/pleading GIF
+                    document.querySelector('.gif-container img').src = 'https://media.tenor.com/0TinyVq87m4AAAAC/please7tv-please.gif';
                     break;
                 default:
                     makeButtonRunAway();
+                    message.textContent = "Ahh, ayaw mo ah?";
+                    message.style.fontSize = '35px';
                     yesBtn.style.fontSize = '40px';
                     yesBtn.style.padding = '30px 80px';
                     noBtn.style.fontSize = '10px';
                     noBtn.style.padding = '5px 10px';
-                    message.textContent = "Just click Yes na please! 🥺";
+                    // Sonic Amy GIF
+                    document.querySelector('.gif-container img').src = 'https://media.tenor.com/8XNZFTOu-2AAAAAC/sonic-the-hedgehog-sonic.gif';
                     break;
             }
         });
