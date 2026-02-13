@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Will you be my Valentine? 💕</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #f093fb 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 90%;
+            width: 400px;
+            position: relative;
+            z-index: 10;
+        }
+
+        h1 {
+            color: #e91e63;
+            font-size: 28px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .question {
+            font-size: 22px;
+            color: #333;
+            margin: 20px 0 30px;
+            font-weight: bold;
+        }
+
+        .gif-container {
+            margin: 20px 0;
+        }
+
+        .gif-container img {
+            width: 200px;
+            height: 200px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 15px 40px;
+            font-size: 18px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        #yesBtn {
+            background: linear-gradient(135deg, #ff6b6b, #ff3838);
+            color: white;
+            box-shadow: 0 5px 15px rgba(255, 56, 56, 0.4);
+        }
+
+        #yesBtn:hover {
+            transform: scale(1.1);
+        }
+
+        #noBtn {
+            background: #f0f0f0;
+            color: #666;
+            position: relative;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #e91e63;
+            font-weight: bold;
+            min-height: 30px;
+        }
+
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 30px;
+            animation: float 3s ease-in-out;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        .celebration {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.95);
+            z-index: 2000;
+            flex-direction: column;
+        }
+
+        .celebration h2 {
+            font-size: 40px;
+            color: #e91e63;
+            margin-bottom: 20px;
+            animation: bounce 1s ease infinite;
+        }
+
+        .celebration p {
+            font-size: 24px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .runaway {
+            animation: runAway 0.5s ease;
+        }
+
+        @keyframes runAway {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(100px, -50px); }
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 480px) {
+            h1 { font-size: 24px; }
+            .question { font-size: 20px; }
+            button { padding: 12px 30px; font-size: 16px; }
+            .gif-container img { width: 150px; height: 150px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hey Trisha🌹Frias!</h1>
+        <div class="gif-container">
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXNtMGFwOWFhcjN1cXBkY3AydXBjY3p1OGNpZWs4dHNpOHJoMWNlNCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/l0K42u9hCg0x6XbLa/giphy.gif" alt="Cute bear">
+        </div>
+        <p class="question">Will you be my Valentine? 💕</p>
+        <div class="buttons">
+            <button id="yesBtn">Yes! 😊</button>
+            <button id="noBtn">No 😐</button>
+        </div>
+        <div class="message" id="message"></div>
+    </div>
+
+    <div class="hearts" id="hearts"></div>
+
+    <div class="celebration" id="celebration">
+        <h2>Yayyyyy! Hapi na meee! Mwaaaaah!!💋💋💋</h2>
+        <p>Love, Nicos 💕</p>
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWlvaGUyNmdwcnZkNTNkOWJ2ZThlOGZvN2p0OXNlOGp6cjR2ZmV2OCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/l0MYt5jPR6QX5pnqM/giphy.gif" style="width: 300px; border-radius: 20px; margin-top: 20px;">
+    </div>
+
+    <script>
+        let noClickCount = 0;
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const message = document.getElementById('message');
+        const celebration = document.getElementById('celebration');
+        const heartsContainer = document.getElementById('hearts');
+
+        // Array of GIFs for different stages
+        const sadGifs = [
+            'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXNtMGFwOWFhcjN1cXBkY3AydXBjY3p1OGNpZWs4dHNpOHJoMWNlNCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/l0K42u9hCg0x6XbLa/giphy.gif',
+            'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGI5OXFpdm1vZXRlYTJ0MWxmbjA2ejh5MG5tbTFxajV0aTFvajdnOSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/OPU6wzx8JrHna/giphy.gif',
+            'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3I5c3h3MmE0YXVhOGltdGRkdnpzbHJoZWE3bDlldjVoeDk5dGoyciZlcD12MV9naWZzX3NlYXJjaCZjdD1n/d2lcHJTKuKkE0/giphy.gif'
+        ];
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = ['❤️', '💕', '💖', '💗', '💝'][Math.floor(Math.random() * 5)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+            heartsContainer.appendChild(heart);
+            setTimeout(() => heart.remove(), 3000);
+        }
+
+        function makeButtonRunAway() {
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+        }
+
+        noBtn.addEventListener('click', () => {
+            noClickCount++;
+            
+            const currentYesSize = parseFloat(window.getComputedStyle(yesBtn).fontSize);
+            const currentNoSize = parseFloat(window.getComputedStyle(noBtn).fontSize);
+
+            switch(noClickCount) {
+                case 1:
+                    message.textContent = "Ayaw mo me ka-Valentine's??😔";
+                    yesBtn.style.fontSize = (currentYesSize * 1.5) + 'px';
+                    yesBtn.style.padding = '20px 50px';
+                    document.querySelector('.gif-container img').src = sadGifs[1];
+                    break;
+                case 2:
+                    message.textContent = "Babeeeeeeee??!!!!!!🤨🤨";
+                    yesBtn.style.fontSize = (currentYesSize * 1.3) + 'px';
+                    yesBtn.style.padding = '25px 60px';
+                    noBtn.style.fontSize = (currentNoSize * 0.8) + 'px';
+                    noBtn.style.padding = '10px 20px';
+                    document.querySelector('.gif-container img').src = sadGifs[2];
+                    break;
+                case 3:
+                    makeButtonRunAway();
+                    message.textContent = "The button is running away from you! 😂";
+                    break;
+                default:
+                    makeButtonRunAway();
+                    yesBtn.style.fontSize = '40px';
+                    yesBtn.style.padding = '30px 80px';
+                    noBtn.style.fontSize = '10px';
+                    noBtn.style.padding = '5px 10px';
+                    message.textContent = "Just click Yes na please! 🥺";
+                    break;
+            }
+        });
+
+        // Desktop hover effect
+        if (window.innerWidth > 768) {
+            noBtn.addEventListener('mouseenter', () => {
+                if (noClickCount >= 3) {
+                    makeButtonRunAway();
+                }
+            });
+        }
+
+        yesBtn.addEventListener('click', () => {
+            celebration.style.display = 'flex';
+            
+            // Create many hearts
+            for (let i = 0; i < 50; i++) {
+                setTimeout(createHeart, i * 100);
+            }
+            
+            // Confetti effect
+            confetti({
+                particleCount: 200,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+        });
+
+        // Add confetti library
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js';
+        document.head.appendChild(script);
+    </script>
+</body>
+</html>
