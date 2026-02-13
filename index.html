@@ -240,17 +240,15 @@
             const currentYesSize = parseFloat(window.getComputedStyle(yesBtn).fontSize);
             const currentNoSize = parseFloat(window.getComputedStyle(noBtn).fontSize);
 
-           switch(noClickCount) {
+          switch(noClickCount) {
                 case 1:
                     message.textContent = "Ayaw mo me ka-Valentine's??😔";
                     message.style.fontSize = '28px';
                     yesBtn.style.fontSize = (currentYesSize * 1.5) + 'px';
                     yesBtn.style.padding = '20px 50px';
                     document.querySelector('.gif-container img').src = sadGifs[1];
-                    // Hide the title and question
                     document.querySelector('h1').style.display = 'none';
                     document.querySelector('.question').style.display = 'none';
-                    // Make GIF bigger
                     document.querySelector('.gif-container img').style.width = '250px';
                     document.querySelector('.gif-container img').style.height = '250px';
                     break;
@@ -261,15 +259,15 @@
                     yesBtn.style.padding = '25px 60px';
                     noBtn.style.fontSize = (currentNoSize * 0.8) + 'px';
                     noBtn.style.padding = '10px 20px';
-                    // Spock eyebrow raise GIF
-                    document.querySelector('.gif-container img').src = 'https://media.tenor.com/ggFwEbLaZrUAAAAC/spock-eyebrow-raise.gif';
+                    // Raised eyebrow GIF
+                    document.querySelector('.gif-container img').src = 'https://media.giphy.com/media/ANbD1CCdA3iI8/giphy.gif';
                     break;
                 case 3:
                     makeButtonRunAway();
                     message.textContent = "Daliiiiiiiiiiiii!";
                     message.style.fontSize = '32px';
-                    // Begging/pleading GIF
-                    document.querySelector('.gif-container img').src = 'https://media.tenor.com/0TinyVq87m4AAAAC/please7tv-please.gif';
+                    // Crying pleading GIF
+                    document.querySelector('.gif-container img').src = 'https://media.giphy.com/media/l41YqKTI3pFKuI9CE/giphy.gif';
                     break;
                 default:
                     makeButtonRunAway();
@@ -279,8 +277,8 @@
                     yesBtn.style.padding = '30px 80px';
                     noBtn.style.fontSize = '10px';
                     noBtn.style.padding = '5px 10px';
-                    // Sonic Amy GIF
-                    document.querySelector('.gif-container img').src = 'https://media.tenor.com/8XNZFTOu-2AAAAAC/sonic-the-hedgehog-sonic.gif';
+                    // Sonic & Amy GIF
+                    document.querySelector('.gif-container img').src = 'https://media.giphy.com/media/KztT2c4u8mYz2/giphy.gif';
                     break;
             }
         });
